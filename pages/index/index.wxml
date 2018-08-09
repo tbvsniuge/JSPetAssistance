@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="container">
+
+  <view class="modal" style="{{addNewRoleStyle}}">
+    <view class="dialog">
+      <view class="modal-item" style="display:flex;justify-content:center;align-items:center;">
+        请输入日记标题
+      </view>
+      <view class="modal-item" style="margin:0 auto;width:90%;">
+        <input type="text" bindinput="titleInput" style="background-color:white;border-radius:2px;" value="{{rolename}}" placeholder="请输入日记标题">
+        </input>
+      </view>
+      <view class="modal-button" style="width:100%">
+        <view style="color:green;border-right:1px solid #E5E7ED;" bindtap="touchOK">确定</view>
+        <view bindtap="touchCancel">取消</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto" bindtap="ToMainPage">今天你摸了吗？</text>
+  </view>
+  <view>
+    <view class="rolelist">
+      <view class="roleblock" wx:for="{{roleList}}" wx:for-index="idx" wx:key = "idx">
+        <checkbox class="roleitem" checked="{{item.checked}}" />
+        <view class="roleitem item">
+          {{item.rolename}}
+        </view>
+      </view>
+    </view>
+    <view class="buttonblock">
+      <button class="roleitem buttonstyle" type="primary" bindtap="removerole">删除</button>
+      <button class="roleitem buttonstyle" type="primary" bindtap="addrole">添加</button>
+    </view>
+  </view>
+</view>

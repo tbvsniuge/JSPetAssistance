@@ -1,0 +1,19 @@
+<!--pages/mainpage/mainpage.wxml-->
+<text>pages/mainpage/mainpage.wxml</text>
+<view>
+  <view class='selectionEntry'>
+    <view>
+      {{item.title}}
+    </view>
+  </view>
+  <view class='selectionEntry'>
+    <view>
+      {{item.title}}
+    </view>
+  </view>
+  <view class='selectionEntry'>
+    <view>
+      {{item.title}}
+    </view>
+  </view>
+</view>
